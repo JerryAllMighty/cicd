@@ -5,9 +5,6 @@ on:
     types:
       - completed
 
-
-
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,4 +16,7 @@ jobs:
         username: ec2-user
         key: ${{ secrets.KEY }}
         port: 22
-        script: whoami
+        script: |
+          cd cicd
+          git pull
+          
