@@ -52,9 +52,7 @@ jobs:
       - run:
           name: Run deploy
           command: |
-            ssh ec2-user@43.200.70.100
-            cd cicd
-            git pull
+            ssh -o "StrictHostKeyChecking no" ec2-user@43.200.70.100 "cd cicd && git pull"
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
