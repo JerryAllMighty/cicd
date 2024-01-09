@@ -11,7 +11,7 @@ def hello_world():
     """
     hello world api
     """
-    return "<p>Hello, WOrld! Is ci cd funny?</p>"
+    return "<p>Hello, WOrld! Is ci cd funny huh?</p>"
 
 @app.route("/index")
 def index():
@@ -22,4 +22,3 @@ def index():
     if branch_condition == 1:
         return "<p>index</p>"
     return f"<p>index {branch_condition}</p>"
-      
