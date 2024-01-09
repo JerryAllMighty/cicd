@@ -44,7 +44,19 @@ jobs:
             coverage run -m pytest
             coverage report
             coverage html
+      - store_artifacts:
+        path: htmlcov
+        destination: artifact-file
+      - add_ssh_keys:
+          fingerprints:
+            - "8e:b0:f5:31:d0:1e:43:95:0f:81:70:6f:f1:c6:ed:32"
 
+      - run:
+          name: Run deploy
+          command: |
+            ssh ec2-user@43.200.70.100
+            cd cicd
+            git pull
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
