@@ -53,7 +53,7 @@ jobs:
       - run:
           name: Run deploy..Maybe Next Time
           command: |
-            # ssh -o "StrictHostKeyChecking no" ec2-user@43.200.70.100 "cd cicd && git pull"
+            ssh -o "StrictHostKeyChecking no" ec2-user@43.200.70.100 "cd cicd && git pull"
 
   notify:
     docker:
