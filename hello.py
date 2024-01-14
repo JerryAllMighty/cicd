@@ -11,7 +11,7 @@ def hello_world():
     """
     hello world api
     """
-    return "<p>Hello, WOrld! Is ci cd funny?</p>"
+    return "<p>the Fuck! Python env!</p>"
 
 @app.route("/index")
 def index():
