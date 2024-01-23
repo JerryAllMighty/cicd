@@ -5,15 +5,17 @@ pipeline {
         stage('start') {
           agent any
             steps {
-              def attachments = [
-                [
-                  text: 'start',
-                  fallback: 'Hey, Vader seems to be mad at you.',
-                  color: '#ff0000'
+              script {
+                def attachments = [
+                  [
+                    text: 'start',
+                    fallback: 'Hey, Vader seems to be mad at you.',
+                    color: '#ff0000'
+                  ]
                 ]
-              ]
 
-              slackSend(channel: "#cicd", attachments: attachments)
+                slackSend(channel: "#cicd", attachments: attachments)
+              }
             }
         }
         stage('ci') {
@@ -42,15 +44,17 @@ pipeline {
         stage('end') {
           agent any
             steps {
+              script {
                 def attachments = [
-                [
-                  text: 'end',
-                  fallback: 'Hey, Vader seems to be mad at you.',
-                  color: '#ff0000'
+                  [
+                    text: 'end',
+                    fallback: 'Hey, Vader seems to be mad at you.',
+                    color: '#ff0000'
+                  ]
                 ]
-              ]
 
-              slackSend(channel: "#cicd", attachments: attachments)
+                slackSend(channel: "#cicd", attachments: attachments)
+              }
             }
         }
     }
