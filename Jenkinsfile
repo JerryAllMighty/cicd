@@ -5,7 +5,15 @@ pipeline {
         stage('start') {
           agent any
             steps {
-                slacksend(channel: '#cicd', message: "start")
+              def attachments = [
+                [
+                  text: 'start',
+                  fallback: 'Hey, Vader seems to be mad at you.',
+                  color: '#ff0000'
+                ]
+              ]
+
+              slackSend(channel: "#cicd", attachments: attachments)
             }
         }
         stage('ci') {
@@ -34,7 +42,15 @@ pipeline {
         stage('end') {
           agent any
             steps {
-                slacksend(channel: '#cicd', message: "end")
+                def attachments = [
+                [
+                  text: 'end',
+                  fallback: 'Hey, Vader seems to be mad at you.',
+                  color: '#ff0000'
+                ]
+              ]
+
+              slackSend(channel: "#cicd", attachments: attachments)
             }
         }
     }
