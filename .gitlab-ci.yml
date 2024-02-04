@@ -25,14 +25,20 @@ before_script:
   - source venv/bin/activate
   - pip install -r requirements.txt
 
-              
+stages:
+  - lint
+  - test
+  - coverage              
+
+lint:
+  script:
+    - pylint $(git ls-files 'hello.py') 
 
 test:
   script:
-    - pylint $(git ls-files 'hello.py') 
     - pytest
 
-run:
+coverage:
   script:
     - coverage run -m pytest
     - coverage report
