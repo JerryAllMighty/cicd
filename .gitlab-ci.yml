@@ -31,14 +31,17 @@ stages:
   - coverage              
 
 lint:
+  stage: lint
   script:
     - pylint $(git ls-files 'hello.py') 
 
 test:
+  stage: test
   script:
     - pytest
 
 coverage:
+  stage: coverage
   script:
     - coverage run -m pytest
     - coverage report
