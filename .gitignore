@@ -326,4 +326,7 @@ pyrightconfig.json
 .history
 .ionide
 
+#cicd pem should be ignored
+.cicd-lastest.pem
+.circleci/
 # End of https://www.toptal.com/developers/gitignore/api/flask,macos,python,visualstudiocode,linux

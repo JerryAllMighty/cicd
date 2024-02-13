@@ -2,14 +2,14 @@ version: 0.2
 
 phases:
   install:
-  runtime-versions:
-    python: 3.9
-  commands:
-    - pip3 install -r requirements.txt
+    runtime-versions:
+      python: 3.9
+    commands:
+      - pip3 install -r requirements.txt      
   pre_build:
     on-failure: ABORT
     commands:
-      - pylint $(git ls-files 'hello.py') 
+      - pylint hello.py
       - pytest
 
   build:
@@ -20,6 +20,6 @@ phases:
       - coverage html
 
 
-  artifacts:
-    files: 
-      - htmlcov
+artifacts:
+  files: 
+    - htmlcov
