@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+  runtime-versions:
+    python: 3.9
+  commands:
+    - pip3 install -r requirements.txt
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - pylint $(git ls-files 'hello.py') 
+      - pytest
+
+  build:
+    on-failure: ABORT
+    commands:
+      - coverage run -m pytest
+      - coverage report
+      - coverage html
+
+
+  artifacts:
+    files: 
+      - htmlcov
