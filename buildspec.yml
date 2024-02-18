@@ -5,6 +5,7 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
+      - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 150297835308.dkr.ecr.ap-northeast-2.amazonaws.com/flask
       - pip3 install -r requirements.txt      
   pre_build:
     on-failure: ABORT
@@ -18,7 +19,10 @@ phases:
       - coverage run -m pytest
       - coverage report
       - coverage html
-
+  post_build:
+    commands:
+      - docker build . -t 150297835308.dkr.ecr.ap-northeast-2.amazonaws.com/flask:latest
+      - docker push 150297835308.dkr.ecr.ap-northeast-2.amazonaws.com/flask:latest
 
 artifacts:
   files: 
