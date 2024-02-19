@@ -16,5 +16,7 @@ CICD 연습
 - EC2
 - Docker
 - ECR
+- Slack
+- Python 3.9
 
   
