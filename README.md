@@ -23,4 +23,4 @@
 - Python 3.9
 
   
-### 진행 과정 중의 Issue는 Git Issue로 관리
+** 진행 과정 중의 Issue는 Git Issue로 관리
